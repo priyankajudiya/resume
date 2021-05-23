@@ -1,0 +1,105 @@
+{% extends '../base.html' %}
+{% block title %}{{user.name | title}}{% endblock title %}
+{% block content %}
+<div class="page">
+  <div class="page-content">
+
+    <header id="site_header" class="header mobile-menu-hide">
+      <div class="header-content">
+        <div class="header-photo">
+          <img src="{{user.pic.url}}" alt="Profile Pic">
+        </div>
+        <div class="header-titles">
+            <h2>{{user.name | title}}</h2>
+        </div>
+      </div>
+
+      <ul class="main-menu">
+        <li class="active">
+          <a href="#home" class="nav-anim">
+            <span class="menu-icon lnr lnr-home"></span>
+            <span class="link-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#about-me" class="nav-anim">
+            <span class="menu-icon lnr lnr-user"></span>
+            <span class="link-text">About Me</span>
+          </a>
+        </li>
+        <li>
+          <a href="#resume" class="nav-anim">
+            <span class="menu-icon lnr lnr-graduation-hat"></span>
+            <span class="link-text">Resume</span>
+          </a>
+        </li>
+        <li>
+          <a href="#portfolio" class="nav-anim">
+            <span class="menu-icon lnr lnr-briefcase"></span>
+            <span class="link-text">Portfolio</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-anim">
+            <span class="menu-icon lnr lnr-envelope"></span>
+            <span class="link-text">Contact</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="social-links">
+        <ul>
+          <li><a href="https://www.facebook.com/pilu.ajudiya/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://github.com/priyankajudiya" target="_blank"><i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="header-buttons">
+        <a href="media/files/resume.docx" target="_blank" class="btn btn-primary">Download CV</a>
+      </div>
+
+      <div class="copyrights">© 2021 All rights reserved.</div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- End Mobile Navigation -->
+
+    <!-- Arrows Nav -->
+    <div class="lmpixels-arrows-nav">
+      <div class="lmpixels-arrow-right"><i class="lnr lnr-chevron-right"></i></div>
+      <div class="lmpixels-arrow-left"><i class="lnr lnr-chevron-left"></i></div>
+    </div>
+    <!-- End Arrows Nav -->
+
+    <div class="content-area">
+      <div class="animated-sections">
+        <!-- Home Subpage -->
+        {% include "index/home.html" %}
+        <!-- End of Home Subpage -->
+
+        <!-- About Me Subpage -->
+        {% include "index/about.html" %}
+        <!-- End of About Me Subpage -->
+
+        <!-- Resume Subpage -->
+        {% include "index/resume.html" %}
+        <!-- End of Resume Subpage -->
+
+        <!-- Portfolio Subpage -->
+        {% include "index/port.html" %}
+        <!-- End of Portfolio Subpage -->
+
+        <!-- Contact Subpage -->
+        {% include "index/contact.html" %}
+        <!-- End of Contact Subpage -->
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}

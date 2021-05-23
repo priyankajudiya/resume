@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{{port.title}}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+        }
+
+        .center {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        .title {
+            padding-top: 20px;
+            padding-bottom: 30px;
+            text-align: left;
+        }
+
+        .nav-tab {
+            margin-top: 40px;
+        }
+
+        .nav-tab i {
+            float: right;
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+        .block-title {
+            display: inline-block;
+            position: relative;
+            padding-right: 12px;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            margin-top: 19px;
+        }
+
+        .block-title:after {
+            position: absolute;
+            opacity: 0.45;
+            top: 23px;
+            right: 0;
+            content: '';
+            height: 20px;
+            width: 30px;
+            background-image: -webkit-repeating-radial-gradient(center center, #5050f5, #5050f5 1px, transparent 0px, transparent 100%);
+            background-image: -moz-repeating-radial-gradient(center center, #5050f5, #5050f5 1px, transparent 0px, transparent 100%);
+            background-image: -ms-repeating-radial-gradient(center center, #5050f5, #5050f5 1px, transparent 0px, transparent 100%);
+            -webkit-background-size: 6px 6px;
+            -moz-background-size: 6px 6px;
+            background-size: 6px 6px;
+            z-index: 0;
+        }
+
+        ul[class],
+        ol[class] {
+            list-style: none;
+        }
+        .portfolio-block{
+            padding-top: 20px;
+        }
+        .project-general-info .fas {
+            color: #5050f5;
+            margin-right: 5px;
+        }
+
+        .tags-block {
+            margin: 25px 0 0;
+        }
+
+        .tags>li {
+            display: inline-block;
+        }
+
+        .tags a:first-child {
+            margin-left: 0;
+        }
+
+        .tags a {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 1.5em;
+            color: #e5e5e5;
+            padding: 2px 7px;
+            background-color: #444;
+            border-radius: 3px;
+            border: 1px solid #444;
+            margin: 3px 2px 2px;
+        }
+
+        .share-buttons a {
+            display: inline-block;
+            margin: 0 3px 0 0;
+            padding: 0;
+            width: 28px;
+            height: 28px;
+            color: #b5b5b5;
+            background-color: #222;
+            border: 1px solid #222;
+            text-align: center;
+            border-radius: 0;
+        }
+
+        .social {
+            margin-left: 10px;
+            margin-top: 31px;
+        }
+
+        .social a:hover {
+            color: white;
+        }
+
+        .close-btn {
+            background-color: #222;
+            color: wheat;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+        .loader {
+            position: absolute;
+            z-index: 1000;
+            background-color:rgb(24, 23, 23);
+            width: 100vw;
+            height: 100vh;
+            
+            }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div class="container">
+        <div class="center">
+            <div class="row">
+                <div class="col-12 nav-tab">
+                    <i class="far fa-window-close btn close-btn"></i>
+                </div>
+                <div class="col-12 title">
+                    <h3>{{port.title}}</h3>
+                </div>
+            </div>
+            <div class="portfolio-block">
+                <div class="row">
+                    <div class="col-12 col-md-8 p-1 ">
+                        <img width="100%" src="{{port.img.url}}"
+                            alt="">
+                    </div>
+                    <div style="background-color: #333;" class="col-12 col-md-4">
+                        <div>
+                            <div class="block-title">
+                                <h3>Description</h3>
+                            </div>
+                            <ul class="project-general-info">
+                                <li>
+                                    <i class="fas fa-globe"></i>
+                                    <a href="{{port.url}}">Visit Website</a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-calendar-alt"></i>
+                                    {{port.date}}
+                                </li>
+                                <p class="text-justify mt-2 pr-3">
+                                    {{port.desc}}
+                                </p>
+                            </ul>
+                            <div class="tags-block">
+                                <div class="block-title">
+                                    <h3>Technology</h3>
+                                </div>
+                                <ul class="tags">
+                                    {% for tec in tech  %}
+                                    <li><a>{{tec}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(window).ready(function(){
+            $('.close-btn').click(function(){
+                window.close()
+            });
+            $('.loader').fadeOut(300)
+        });
+    </script>
+</body>
+
+</html>

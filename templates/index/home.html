@@ -1,0 +1,25 @@
+<section data-id="home" class="animated-section start-page">
+  <div class="section-content vcentered">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="title-block">
+          <h2>
+            {{user.name | title }}
+            {% if user.mname != none %}
+            {{user.mname|title}}
+            {% endif %}
+            {% if user.lname != none %}
+            {{user.lname | title}}</h2>
+            {% endif %}
+          <div class="owl-carousel text-rotation">
+            {% for d in designation %}
+            <div class="item">
+              <div class="sp-subtitle">{{d |title}}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

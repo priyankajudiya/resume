@@ -1,0 +1,106 @@
+<section data-id="resume" class="animated-section">
+  <div class="page-title">
+    <h2>Resume</h2>
+  </div>
+
+  <div class="section-content">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-7">
+
+        <div class="block-title">
+          <h3>Education</h3>
+        </div>
+        <!-- EDUCATIONS -->
+        {% for e in edu %}
+        {% if e.eduFor_id == user.pk %}
+        <div class="timeline timeline-second-style clearfix">
+          <div class="timeline-item clearfix">
+            <div class="left-part">
+              <h5 class="item-period">{{e.eduYear}}</h5>
+              <span class="item-company">{{e.eduTitle|title}}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="right-part">
+              <h4 class="item-title">{{e.eduFrom|title}}</h4>
+              <p>{{e.eduDesc|capfirst}}</p>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <!-- EDUCATIONS END -->
+
+        <div class="white-space-50"></div>
+
+        <div class="block-title">
+          <h3>Experience</h3>
+        </div>
+        <div class="timeline timeline-second-style clearfix">
+        <!-- Experience -->
+          {% for ex in exp %}
+          {% if ex.expFor_id == user.pk %}
+          <div class="timeline-item clearfix">
+            <div class="left-part">
+              <h5 class="item-period">{{ex.fromDate}} - {{ex.toDate}}</h5>
+              <span class="item-company">{{ex.compuny | title}}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="right-part">
+              <h4 class="item-title">{{ex.title | title}}</h4>
+              <p>{{ex.desc | capfirst}}.</p>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        <!-- Experience End -->
+        </div>
+      </div>
+
+      <!-- Skills & Certificates -->
+      <div class="col-xs-12 col-sm-5">
+        <!-- Skills -->
+        <div class="block-title">
+          <h3>Computer <span>Skills</span></h3>
+        </div>
+
+        <div class="skills-info skills-second-style">
+          <!-- Skill 1 -->
+          {% for sk in skils %}
+          {% if sk.skilFor_id == user.pk %}
+          <div class="skill clearfix">
+            <h4>{{sk.skilTitle|title}}</h4>
+            <div class="skill-value">{{sk.skilPer}}%</div>
+          </div>
+          <div class="skill-container skill-1">
+            <div class="skill-percentage" style="width: {{sk.skilPer}}%"></div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          <!-- End of Skill 1 -->
+
+        </div>
+        <div class="white-space-10"></div>
+        <!-- End of Skills -->
+
+        <!-- Knowledges -->
+        <div class="block-title">
+          <h3>Knowledges</h3>
+        </div>
+
+        <ul class="knowledges">
+          {% if know %}
+          {% for k in know %}
+          <li>{{k}}</li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+        <!-- End of Knowledges -->
+      </div>
+      <!-- End of Skills & Certificates -->
+    </div>
+
+    <div class="white-space-50"></div>
+
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<section data-id="portfolio" class="animated-section">
+    <div class="page-title">
+        <h2>Portfolio</h2>
+    </div>
+
+    <div class="section-content">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <!-- Portfolio Content   -->
+                <div class="portfolio-content">
+
+                    <ul class="portfolio-filters">
+                        <li class="active">
+                            <a class="filter btn btn-sm btn-link" data-group="category_all">All</a>
+                        </li>
+                    </ul>
+
+                    <!-- Portfolio Grid -->
+                    <div class="portfolio-grid three-columns">
+                        {% for p in port %}
+                        {% if p.portFor_id == user.pk %}
+                        <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
+                            <div class="portfolio-item-img">
+                                <img src="{{p.img.url}}" alt="Media Project 2" title="" />
+                                <a href="{% url 'portfolio' p.pk %}" id="{{p.pk}}" target="_blank"></a>
+                            </div>
+
+                            <i class="far fa-file-alt"></i>
+                            <h4 class="name">{{p.title}}</h4>
+                            <span class="category">Detailed</span>
+                        </figure>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <!-- End of Portfolio Content -->
+            </div>
+        </div>
+    </div>
+</section>

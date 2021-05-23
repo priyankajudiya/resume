@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "E:\\Django_PROJECTS\\my_resume\\myenv\\Scripts\\python.exe",
+    "python.formatting.provider": "black"
+}

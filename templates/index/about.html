@@ -1,0 +1,49 @@
+<section data-id="about-me" class="animated-section">
+    <div class="page-title">
+      <h2>About <span>Me</span></h2>
+    </div>
+
+    <div class="section-content">
+      {% comment %} <!-- Personal Information --> {% endcomment %}
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <p>{{user.description}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-5">
+          <div class="info-list">
+            <ul>
+              <li>
+                <span class="title">Age</span>
+                <span class="value">{{user.age}}</span>
+              </li>
+
+              <li>
+                <span class="title">Residence</span>
+                <span class="value">{{user.country|title}}</span>
+              </li>
+
+              <li>
+                <span class="title">Address</span>
+                <span class="value">{% if user.address != none %}{{user.address|title}},{% endif %} {% if user.city != none %}{{user.city|title}},{% endif %} {% if user.state != none %}{{user.state|title}}{% endif %}</span>
+              </li>
+
+              <li>
+                <span class="title">e-mail</span>
+                <span class="value">{{user.email}}</span>
+              </li>
+
+              <li>
+                <span class="title">Phone</span>
+                <span class="value">{{user.phone}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="white-space-50"></div>
+      {% include 'index/funfacts.html' %}
+
+    </div>
+  </section>
